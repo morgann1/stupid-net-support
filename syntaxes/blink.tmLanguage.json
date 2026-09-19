@@ -1,0 +1,94 @@
+{
+  "name": "Blink",
+  "scopeName": "source.blink",
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#strings" },
+    {
+      "name": "variable.other.property.blink",
+      "match": "\\b[A-Za-z_][A-Za-z0-9_]*(?=\\s*:)"
+    },
+    { "include": "#declarations" },
+    {
+      "name": "entity.name.type.blink",
+      "match": "\\b[A-Za-z_][A-Za-z0-9_]*(?:\\.[A-Za-z_][A-Za-z0-9_]*)+"
+    },
+    {
+      "name": "keyword.control.blink",
+      "match": "\\b(?:option|type|event|function|scope|enum|struct|map|set|import|export|as)\\b"
+    },
+    {
+      "name": "storage.type.blink",
+      "match": "\\b(?:u8|u16|u32|i8|i16|i32|f16|f32|f64|boolean|string|buffer|vector|unknown|Instance|Color3|CFrame|BrickColor|DateTime|DateTimeMillis)\\b"
+    },
+    {
+      "name": "constant.language.blink",
+      "match": "\\b(?:true|false|Server|Client|Reliable|Unreliable|SingleSync|SingleAsync|ManySync|ManyAsync|Polling|Coroutine|Future|Promise|Pascal|Camel|Snake)\\b"
+    },
+    {
+      "name": "constant.numeric.blink",
+      "match": "(?<![A-Za-z0-9_])-?(?:[0-9]+(?:\\.[0-9]+)?|\\.[0-9]+)(?![A-Za-z0-9_])"
+    },
+    { "name": "keyword.operator.blink", "match": "\\.\\.|[=?:]" },
+    { "name": "punctuation.accessor.blink", "match": "\\." },
+    { "name": "punctuation.section.blink", "match": "[{}()\\[\\]<>]" },
+    { "name": "punctuation.separator.blink", "match": "," },
+    { "name": "entity.name.type.blink", "match": "\\b[A-Za-z_][A-Za-z0-9_]*\\b" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        { "name": "comment.block.blink", "begin": "--\\[(=*)\\[", "end": "\\]\\1\\]" },
+        { "name": "comment.line.double-dash.blink", "match": "--.*$" }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.blink",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [{ "name": "constant.character.escape.blink", "match": "\\\\." }]
+        },
+        {
+          "name": "string.quoted.single.blink",
+          "begin": "'",
+          "end": "'",
+          "patterns": [{ "name": "constant.character.escape.blink", "match": "\\\\." }]
+        }
+      ]
+    },
+    "declarations": {
+      "patterns": [
+        {
+          "match": "\\b(type|struct|enum|map|set)\\s+([A-Za-z_][A-Za-z0-9_]*)",
+          "captures": {
+            "1": { "name": "keyword.control.blink" },
+            "2": { "name": "entity.name.type.blink" }
+          }
+        },
+        {
+          "match": "\\b(event|function)\\s+([A-Za-z_][A-Za-z0-9_]*)",
+          "captures": {
+            "1": { "name": "keyword.control.blink" },
+            "2": { "name": "entity.name.function.blink" }
+          }
+        },
+        {
+          "match": "\\b(scope|as)\\s+([A-Za-z_][A-Za-z0-9_]*)",
+          "captures": {
+            "1": { "name": "keyword.control.blink" },
+            "2": { "name": "entity.name.namespace.blink" }
+          }
+        },
+        {
+          "match": "\\b(option)\\s+([A-Za-z_][A-Za-z0-9_]*)",
+          "captures": {
+            "1": { "name": "keyword.control.blink" },
+            "2": { "name": "variable.other.property.blink" }
+          }
+        }
+      ]
+    }
+  }
+}

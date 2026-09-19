@@ -1,0 +1,7 @@
+**
+!package.json
+!README.md
+!CONTRIBUTING.md
+!syntaxes/**
+!language-configuration/**
+!dist/**

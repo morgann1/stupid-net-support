@@ -1,0 +1,4 @@
+{
+  "ignorePatterns": [".repos/**", ".vscode-test/**", "node_modules/**", "dist/**"],
+  "env": { "node": true }
+}

@@ -1,0 +1,100 @@
+{
+  "name": "Zap",
+  "scopeName": "source.zap",
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#strings" },
+    {
+      "name": "variable.other.property.zap",
+      "match": "\\b[A-Za-z_][A-Za-z0-9_]*(?=\\s*:)"
+    },
+    { "include": "#declarations" },
+    {
+      "match": "\\b(string)(\\.)(utf8|binary)\\b",
+      "captures": {
+        "1": { "name": "storage.type.zap" },
+        "2": { "name": "punctuation.accessor.zap" },
+        "3": { "name": "support.type.zap" }
+      }
+    },
+    {
+      "match": "\\b(Instance)(\\.)([A-Za-z_][A-Za-z0-9_]*)",
+      "captures": {
+        "1": { "name": "storage.type.zap" },
+        "2": { "name": "punctuation.accessor.zap" },
+        "3": { "name": "support.class.zap" }
+      }
+    },
+    {
+      "name": "entity.name.type.zap",
+      "match": "\\b[A-Za-z_][A-Za-z0-9_]*(?:\\.[A-Za-z_][A-Za-z0-9_]*)+"
+    },
+    {
+      "name": "keyword.control.zap",
+      "match": "\\b(?:opt|type|event|funct|namespace|enum|struct|map|set)\\b"
+    },
+    {
+      "name": "storage.type.zap",
+      "match": "\\b(?:u8|u16|u32|i8|i16|i32|f32|f64|boolean|string|buffer|vector|unknown|Instance|Color3|Vector2|Vector3|AlignedCFrame|CFrame|BrickColor|DateTime|DateTimeMillis)\\b"
+    },
+    {
+      "name": "constant.language.zap",
+      "match": "\\b(?:true|false|Server|Client|Reliable|Unreliable|OrderedUnreliable|SingleSync|SingleAsync|ManySync|ManyAsync|Polling|Async|Sync)\\b"
+    },
+    {
+      "name": "constant.numeric.zap",
+      "match": "(?<![A-Za-z0-9_])-?[0-9]+(?:\\.[0-9]+)?(?![A-Za-z0-9_])"
+    },
+    { "name": "keyword.operator.zap", "match": "\\.\\.|[=?:|]" },
+    { "name": "punctuation.accessor.zap", "match": "\\." },
+    { "name": "punctuation.section.zap", "match": "[{}()\\[\\]]" },
+    { "name": "punctuation.separator.zap", "match": "[,;]" },
+    { "name": "entity.name.type.zap", "match": "\\b[A-Za-z_][A-Za-z0-9_]*\\b" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        { "name": "comment.block.zap", "begin": "--\\[\\[", "end": "\\]\\]" },
+        { "name": "comment.line.double-dash.zap", "match": "--.*$" }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        { "name": "string.quoted.double.zap", "begin": "\"", "end": "\"" },
+        { "name": "string.quoted.single.zap", "begin": "'", "end": "'" }
+      ]
+    },
+    "declarations": {
+      "patterns": [
+        {
+          "match": "\\b(type)\\s+([A-Za-z_][A-Za-z0-9_]*)",
+          "captures": {
+            "1": { "name": "keyword.control.zap" },
+            "2": { "name": "entity.name.type.zap" }
+          }
+        },
+        {
+          "match": "\\b(event|funct)\\s+([A-Za-z_][A-Za-z0-9_]*)",
+          "captures": {
+            "1": { "name": "keyword.control.zap" },
+            "2": { "name": "entity.name.function.zap" }
+          }
+        },
+        {
+          "match": "\\b(namespace)\\s+([A-Za-z_][A-Za-z0-9_]*)",
+          "captures": {
+            "1": { "name": "keyword.control.zap" },
+            "2": { "name": "entity.name.namespace.zap" }
+          }
+        },
+        {
+          "match": "\\b(opt)\\s+([A-Za-z_][A-Za-z0-9_]*)",
+          "captures": {
+            "1": { "name": "keyword.control.zap" },
+            "2": { "name": "variable.other.property.zap" }
+          }
+        }
+      ]
+    }
+  }
+}

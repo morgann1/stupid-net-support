@@ -1,0 +1,12 @@
+{
+  "ignorePatterns": [
+    ".repos/**",
+    ".vscode-test/**",
+    "node_modules/**",
+    "dist/**",
+    "package-lock.json"
+  ],
+  "tabWidth": 2,
+  "useTabs": false,
+  "singleQuote": false
+}

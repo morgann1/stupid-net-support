@@ -1,0 +1,19 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run extension",
+      "type": "extensionHost",
+      "request": "launch",
+      "preLaunchTask": "npm: build",
+      "runtimeExecutable": "${execPath}",
+      "args": [
+        "--extensionDevelopmentPath=${workspaceFolder}",
+        "--profile-temp",
+        "${workspaceFolder}/test/fixtures",
+        "${workspaceFolder}/test/fixtures/example.zap",
+        "${workspaceFolder}/test/fixtures/example.blink"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "name": "stupid-net-highlighter",
+  "displayName": "Stupid Net Highlighter",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Syntax highlighting, autocomplete, and hover help for Zap and Blink network definition files.",
+  "categories": [
+    "Programming Languages"
+  ],
+  "main": "./dist/extension.js",
+  "scripts": {
+    "dev": "npm run build && code --new-window --user-data-dir .vscode-test/user-data --shared-data-dir .vscode-test/shared-data --extensions-dir .vscode-test/extensions --extensionDevelopmentPath=\"%CD%\" test/fixtures test/fixtures/example.zap test/fixtures/example.blink",
+    "build": "tsc",
+    "vscode:prepublish": "npm run build",
+    "test:intellisense": "npm run build && node --test test/intellisense.test.mjs",
+    "test:syntax": "node --test test/syntax.test.mjs",
+    "format": "oxfmt",
+    "format:check": "oxfmt --check",
+    "lint": "oxlint"
+  },
+  "devDependencies": {
+    "@types/vscode": "1.85.0",
+    "oxfmt": "0.68.0",
+    "oxlint": "1.83.0",
+    "typescript": "7.0.2",
+    "vscode-oniguruma": "2.0.1",
+    "vscode-textmate": "9.3.2"
+  },
+  "contributes": {
+    "configurationDefaults": {
+      "[zap]": {
+        "editor.tabCompletion": "on",
+        "editor.suggest.snippetsPreventQuickSuggestions": false
+      },
+      "[blink]": {
+        "editor.tabCompletion": "on",
+        "editor.suggest.snippetsPreventQuickSuggestions": false
+      }
+    },
+    "languages": [
+      {
+        "id": "zap",
+        "aliases": [
+          "Zap",
+          "zap"
+        ],
+        "extensions": [
+          ".zap"
+        ],
+        "configuration": "./language-configuration/zap.json"
+      },
+      {
+        "id": "blink",
+        "aliases": [
+          "Blink",
+          "blink"
+        ],
+        "extensions": [
+          ".blink"
+        ],
+        "configuration": "./language-configuration/blink.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "zap",
+        "scopeName": "source.zap",
+        "path": "./syntaxes/zap.tmLanguage.json"
+      },
+      {
+        "language": "blink",
+        "scopeName": "source.blink",
+        "path": "./syntaxes/blink.tmLanguage.json"
+      }
+    ]
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  }
+}

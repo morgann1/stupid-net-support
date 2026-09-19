@@ -1,0 +1,42 @@
+-- Network definitions
+option ServerOutput = "network/server.luau"
+option WriteValidations = true
+option Casing = Camel
+import "./shared.blink" as Shared
+
+--[=[ Shared payloads
+struct Hidden { value: u8 }
+]] stays in this comment
+]=]
+struct Packet<T> {
+  sequence: u16,
+  payload: T,
+  transform: CFrame<f32, f16>,
+  health: f32(-10.5..100),
+  name: string(1..32),
+  ["display-name"]: string?,
+  part: Instance(Part),
+  values: map { [string]: u8 },
+  ..Shared.Base
+}
+enum State = "kind" {
+  Idle {},
+  Moving { target: vector<i16> }
+}
+set Flags = { Visible, Active }
+map Lookup<K, V> = { [K]: V }
+
+scope Network {
+  event Update {
+    From: Server,
+    Type: Unreliable,
+    Call: ManyAsync,
+    Poll: true,
+    Data: (Packet<Shared.Player>[1..64], State)
+  }
+  function GetPlayer {
+    Yield: Future,
+    Data: u32,
+    Return: Shared.Player?
+  }
+}
