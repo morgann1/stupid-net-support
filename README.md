@@ -1,25 +1,24 @@
-# Stupid Net Highlighter
+<div align="center">
+    Stupid Net Support
+    <br>
+    <p>A VS Code extension with syntax highlighting, autocomplete, and hover help for Zap and Blink network definition files.</p>
+</div>
 
-Syntax highlighting, autocomplete, and hover help for Zap and Blink network
-definition files in VS Code.
+## Will you support X?
 
-Open a `.zap` or `.blink` file to enable highlighting. For untitled files, select
-**Zap** or **Blink** through **Change Language Mode**. Colours follow your editor
-theme.
+No. If it isn't Zap or Blink, it's probably slop I have no interest in supporting.
 
-Highlights declarations, types, fields, literals, comments, and operators,
-including Zap namespaces and Blink imports and generics.
+Your "blazingly fast" network library will probably be abandoned or still
+have half-baked features in a few months. A benchmark and a README isn't a reason
+for me to waste precious tokens supporting it.
 
-Type in a definition file or press **Ctrl+Space** for suggestions. Complete
-declarations, options, event and function fields, built-in types, and types
-declared in the current file. Press **Tab** to accept a suggestion or advance to
-the next snippet placeholder. Choosing an option or field opens its value suggestions.
-Brackets and quotes close automatically. Press **Enter** between braces to indent
-the block.
-Hover over a supported name for its description or local type declaration.
+I'll consider an exception if the Roblox OSS community's love for it is
+overwhelming and unwavering.
 
-Local type suggestions respect Zap namespaces, Blink scopes, and Blink generic
-parameters. Imported Blink types, diagnostics, and generated Luau APIs are outside
-the current IntelliSense support.
+## License
+
+[MIT](LICENSE)
+
+## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) to run the extension locally.

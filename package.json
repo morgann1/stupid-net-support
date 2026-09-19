@@ -7,6 +7,7 @@
   "categories": [
     "Programming Languages"
   ],
+  "license": "MIT",
   "main": "./dist/extension.js",
   "scripts": {
     "dev": "npm run build && code --new-window --user-data-dir .vscode-test/user-data --shared-data-dir .vscode-test/shared-data --extensions-dir .vscode-test/extensions --extensionDevelopmentPath=\"%CD%\" test/fixtures test/fixtures/example.zap test/fixtures/example.blink",
