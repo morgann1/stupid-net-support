@@ -1,7 +1,6 @@
 <div align="center">
-    Stupid Net Support
-    <br>
-    <p>A VS Code extension with syntax highlighting, autocomplete, and hover help for Zap and Blink network definition files.</p>
+    <h1>Stupid Net Support</h1>
+    A VS Code extension with syntax highlighting, autocomplete, and hover help for Zap and Blink network definition files.
 </div>
 
 ## Will you support X?
