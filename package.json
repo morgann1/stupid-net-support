@@ -1,6 +1,6 @@
 {
-  "name": "stupid-net-highlighter",
-  "displayName": "Stupid Net Highlighter",
+  "name": "stupid-net-support",
+  "displayName": "Stupid Net Support",
   "version": "0.0.1",
   "private": true,
   "description": "Syntax highlighting, autocomplete, and hover help for Zap and Blink network definition files.",
@@ -8,6 +8,11 @@
     "Programming Languages"
   ],
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/morgann1/stupid-net-support.git"
+  },
+  "publisher": "morgann1",
   "main": "./dist/extension.js",
   "scripts": {
     "dev": "npm run build && code --new-window --user-data-dir .vscode-test/user-data --shared-data-dir .vscode-test/shared-data --extensions-dir .vscode-test/extensions --extensionDevelopmentPath=\"%CD%\" test/fixtures test/fixtures/example.zap test/fixtures/example.blink",

@@ -41,5 +41,5 @@ and `npm run lint -- <changed-code-files>` before submitting changes.
 
 ## Prepare a release
 
-Before packaging or publishing, set your Marketplace `publisher` in `package.json`
-and choose a license. Neither has been configured.
+Run `npx @vscode/vsce package` to build a `.vsix` file. Upload the package under the
+`morgann1` publisher in the [Marketplace publisher portal](https://marketplace.visualstudio.com/manage).
